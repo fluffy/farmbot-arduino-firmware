@@ -134,9 +134,16 @@ GCodeHandler* GCodeProcessor::getGCodeHandler(CommandCodeEnum codeEnum) {
 	if (codeEnum == F12) {handler = F12Handler::getInstance();}
 	if (codeEnum == F13) {handler = F13Handler::getInstance();}
 
+#if 1
+  // Make the calibrate command do a home command instead
+  if (codeEnum == F14) {handler = F11Handler::getInstance();}
+  if (codeEnum == F15) {handler = F12Handler::getInstance();}
+  if (codeEnum == F16) {handler = F13Handler::getInstance();}
+#else
 	if (codeEnum == F14) {handler = F14Handler::getInstance();}
 	if (codeEnum == F15) {handler = F15Handler::getInstance();}
 	if (codeEnum == F16) {handler = F16Handler::getInstance();}
+#endif
 
 	if (codeEnum == F20) {handler = F20Handler::getInstance();}
 	if (codeEnum == F21) {handler = F21Handler::getInstance();}
